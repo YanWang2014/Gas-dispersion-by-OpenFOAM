@@ -1,0 +1,66 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      k;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 0.3;
+
+boundaryField
+{
+    buildingWall
+    {
+        type            kqRWallFunction;
+        value           uniform 0.3;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+    inlet
+    {
+        type            groovyBC;
+        refValue        uniform 0.3;
+        refGradient     uniform 0;
+        valueFraction   uniform 1;
+        value           uniform 0.3;
+        valueExpression "kk";
+        gradientExpression "0";
+        fractionExpression "1";
+        evaluateDuringConstruction 0;
+        variables       "kk=pos().y>=0.02 ? 2134.6*pow(pos().y,6)-2394.8*pow(pos().y,5)+1023.4*pow(pos().y,4)-203.99*pow(pos().y,3)+15.415*pow(pos().y,2)-0.1828*pos().y:0.363;";
+        timelines       (
+);
+        lookuptables    (
+);
+    }
+    lowerWall
+    {
+        type            kqRWallFunction;
+        value           uniform 0.3;
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    upperWall
+    {
+        type            symmetryPlane;
+    }
+}
+
+
+// ************************************************************************* //

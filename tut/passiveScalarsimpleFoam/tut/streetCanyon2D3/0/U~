@@ -1,0 +1,59 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    inlet
+    {
+        type           fixedValue; //groovyBC;
+        //variables "v=pos().y>=0.02 ? -16864*pow(pos().y,6)+24442*pow(pos().y,5)-13891*pow(pos().y,4)+3916.9*pow(pos().y,3)-578.67*pow(pos().y,2)+49.314*pos().y+2.2376: (pos().y>0? 0.7107*log(pos().y)+5.7735:0);";//初始值表达式
+        //valueExpression      "vector(v,0,0)"; //string with the value to be used if a Dirichlet-condition is needed
+        value uniform (1 0 0);//迭代的第一步使用值
+    }
+
+    outlet
+    {
+        type            zeroGradient;
+    }
+
+    upperWall
+    {
+        type            symmetryPlane;
+    }
+
+    lowerWall
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+
+    frontAndBack
+    {
+        type            empty;
+    }
+    
+    buildingWall
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+}
+
+// ************************************************************************* //

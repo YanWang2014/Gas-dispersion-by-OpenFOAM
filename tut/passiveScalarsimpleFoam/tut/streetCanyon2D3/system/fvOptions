@@ -1,0 +1,38 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+    scalarTracer //name
+    {
+        type            scalarSemiImplicitSource;
+        active          true;
+
+
+        
+        scalarSemiImplicitSourceCoeffs
+        {
+            cellZone       f0;//TSsourceCells; 
+            selectionMode   cellZone;  // all, cellSet, points, cellZone  面源怎么办？
+            volumeMode      absolute; // absolute <quantity>; specific <quantity>/m^3
+            injectionRateSuSp 
+            {
+                TS      (10 0); //kg/s  
+            }
+        }
+    }
+
+
+
+// ************************************************************************* //

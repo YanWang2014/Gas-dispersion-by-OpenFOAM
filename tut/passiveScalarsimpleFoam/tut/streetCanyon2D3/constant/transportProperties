@@ -1,0 +1,29 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+transportModel  Newtonian;
+
+nu              nu [ 0 2 -1 0 0 0 0 ] 1.5e-05; //air at 20 ℃     m^2/s 运动粘度=动力粘度/密度空气
+
+// DT              DT  [ 0 2 -1 0 0 0 0 ] 2e-05; 
+Pr              Pr  [ 0 0  0 0 0 0 0 ] 1.0; //传质Schmidt数，通常可取 1
+Prt             Prt [ 0 0  0 0 0 0 0 ] 0.7; //湍流传质Schmidt数，1.0
+
+
+
+
+// ************************************************************************* //
