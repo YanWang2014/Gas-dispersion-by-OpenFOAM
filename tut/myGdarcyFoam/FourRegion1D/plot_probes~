@@ -1,0 +1,14 @@
+
+
+set xlabel "distance (m)"
+set xlabel "Pressure (kg/m/s)"
+
+plot "postProcessing/sets/1/lineX1_p.xy" using 1:2 with lines lw 4 title "p" ,\
+"postProcessing/sets/1/lineX1_p.xy" using 1:2 with lines lw 4 title "p" ,\
+
+
+
+
+
+
+

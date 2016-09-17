@@ -1,0 +1,47 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.4.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : 2.4.0-f0842aea0e77
+Exec   : mydarcyFoam -case FourRegion1D/
+Date   : Jan 06 2016
+Time   : 20:40:50
+Host   : "wayne-GE60-2OC-2OD-2OE"
+PID    : 17837
+Case   : ./FourRegion1D
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading field k
+
+Reading field p
+
+Reading field U
+
+Reading transportProperties
+
+
+SIMPLE: no convergence criteria found. Calculations will run for 1 steps.
+
+
+Calculating pressure distribution
+
+Time = 1
+
+DICPCG:  Solving for p, Initial residual = 1, Final residual = 1.04606e-14, No Iterations 1
+DICPCG:  Solving for p, Initial residual = 8.71466e-15, Final residual = 8.71466e-15, No Iterations 0
+DICPCG:  Solving for p, Initial residual = 8.71466e-15, Final residual = 8.71466e-15, No Iterations 0
+ExecutionTime = 0 s  ClockTime = 0 s
+
+End
+
